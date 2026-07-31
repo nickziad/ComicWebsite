@@ -1,0 +1,77 @@
+:root{
+    --background-color: black;
+    --border-color: rgb(78, 103, 113);
+}
+body{
+  background-color: var(--background-color);
+}
+
+.reader-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.controls-top a{
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    color: white;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 5px;
+    font-size: 2rem;
+}
+
+.controls-bottom{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.controls-bottom a{
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    color: white;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 5px;
+    font-size: 2rem;
+}
+
+.page-indicator{
+    color: white;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.issue-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+
+    height: auto;
+    width: auto;
+}
+.issue-img img{
+    height: auto;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    padding: 2px;
+}
+
+#button-zoom{
+    position:fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 20px;
+    margin-right: 20px;
+
+    padding: 10px 25px;
+    opacity: 0.3;
+}
+
+#button-zoom:hover{
+    opacity: 1;
+}

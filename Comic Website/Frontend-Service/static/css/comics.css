@@ -1,0 +1,50 @@
+:root{
+    --border-color: rgb(78, 103, 113);
+    --publisher-borderfill-color: rgb(147, 1, 1);
+    --publisher-border-color: rgb(112, 0, 0);
+    --publisher-button-hover-color: rgb(17, 33, 40);
+}
+
+
+
+.publisher-container{
+    border: 1px solid var(--border-color);
+}
+
+.card-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card-form label{
+    color: white;
+    border: 1px solid var(--publisher-border-color);
+    padding-left: 100%;
+    padding-right: 100%;
+    background-color: var(--publisher-borderfill-color);
+}
+
+.card-form ul{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+}
+
+.card-form ul li a{
+    text-decoration: none;
+    color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.card-form ul li a:hover{
+    background-color: var(--publisher-button-hover-color);
+}
+.comics-grid{
+    margin:50px;
+}

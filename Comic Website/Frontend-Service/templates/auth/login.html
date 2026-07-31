@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href=" {{ url_for('static', filename='css/auth.css' )}}">
+</head>
+<body>
+    <div class="form-container">
+        <h1 id="title">ComicsMe</h1>
+        <form method="POST">
+            Email: <input name="email" required><br>
+            Password: <input type="password" name="password" required><br>
+            <input type="submit" value="Login">
+        </form>
+        <p>Don't have an account? 
+            <a href="{{ url_for('register') }}">Register here</a></p>
+    </div>
+    <script>
+        const title = document.getElementById('title');
+        title.onmouseover = function(){
+
+            let offset = 150 + Math.floor(Math.random() * 200);
+            const sign = Math.random() < 0.5 ? -1 : 1;
+
+            offset = offset * sign;
+
+            const chance = Math.floor(Math.random() * 2);
+            if (chance == 1){
+            title.style.transform = `translateX(${offset}px)`;
+            title.textContent = "CatchMe"
+            }else{
+            title.style.transform = `translateY(${offset}px)`;
+            title.textContent = "CatchMe"
+            }
+        }
+
+        title.onclick = function(){
+            title.style.transform = `translateX(0px)`;
+            title.textContent = "ComicsMe"
+        }
+
+    </script>
+</body>
+</html>

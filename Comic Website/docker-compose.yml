@@ -1,0 +1,30 @@
+services:
+  auth-service:
+    build: ./Auth-service
+    ports:
+      - "5003:5003"
+    volumes:
+      - ./Auth-Service/instance:/app/instance  
+  user-service:
+    build: ./User-service
+    ports:
+      - "5004:5004"
+    volumes:
+      - ./User-Service/instance:/app/instance
+  catalogue-service:
+    build: ./Catalogue-service
+    ports:
+      - "5002:5002"
+    volumes:
+      - ./Catalogue-Service/instance:/app/instance
+      - ./Items:/items
+  bff-service:
+    build: ./BFF
+    ports:
+      - "5001:5001"
+  frontend-service:
+    build: ./Frontend-service
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./Items:/items:ro

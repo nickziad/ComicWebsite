@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css')}}">
+<link rel="stylesheet" href= "{{ url_for('static', filename='css/comics.css')}}">
+{% endblock %}
+
+{%block nav %}
+{% endblock %}
+
+{% block content %}
+<div class="publisher-container">
+    <form class="card-form" method="GET">
+        <label for="publishers">Publishers</label>
+        <ul>
+            <li><a href="{{ url_for('comics') }}">All</a></li>
+            <li><a href="{{ url_for('comics', publisher='DC Comics') }}">DC Comics</a></li>
+            <li><a href="{{ url_for('comics', publisher='Marvel') }}">Marvel</a></li>
+        </ul>
+    </form>
+</div>
+    {% if comics %}
+        <div class="comics-grid">
+        {% for comic in comics %}
+            <div class="comic-cards">
+                <a href="{{ url_for('comic', id=comic['id']) }}">
+                    <img src="{{ url_for('send_file', path=comic['front_page']) }}" alt = "{{ comic['title']}}">
+                </a>
+                <h3> {{comic['title']}}</h3>
+                <h1> {{ comic['publisher_name'] }}</h1>
+            </div>
+        {% endfor %}
+        </div>
+    {% else %}
+        <h3>No comics yet!</h3>
+    {% endif %}
+    
+{% endblock %}

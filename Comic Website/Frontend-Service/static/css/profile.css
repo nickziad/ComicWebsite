@@ -1,0 +1,99 @@
+:root{
+    --border-color: rgb(78, 103, 113);
+    --profile-info-border-color: rgb(112, 0, 0);
+    --shadow-color: rgb(74, 132, 154);
+}
+
+.profile-info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--profile-info-border-color);
+    flex-direction: column;
+}
+
+.profile-info h1{
+    border-bottom: 1px solid var(--border-color);
+    color: white;
+}
+
+.profile-info h3{
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: white;
+}
+
+.profile-buttons{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.profile-buttons ul{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    border-bottom: 1px solid red;
+}
+
+.profile-buttons ul:last-child{
+    padding-bottom: 10px;
+}
+
+.profile-buttons ul li a{
+    text-decoration: none;
+    color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.profile-buttons ul li a:hover{
+    box-shadow: inset 0px -5px 10px 1px var(--shadow-color);
+}
+
+
+.added-comics-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.comic-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.comic-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 300px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.comic-card img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 2px;
+    border-radius: 10px;
+}
+
+.comic-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0px 15px 20px -10px var(--shadow-color);
+}

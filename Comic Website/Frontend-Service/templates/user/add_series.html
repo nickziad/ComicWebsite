@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/add_series.css')}}">
+{% endblock %}
+
+{%block nav %}
+<li><a href="{{ url_for('index')}}">Home</a></li>
+{% endblock %}
+
+{% block content %}
+  <h1>Add a New Comic Series</h1>
+
+  <form class="card form" method="POST" enctype="multipart/form-data">
+    <label>
+      <span>Series Title</span>
+      <input type="text" name="title" placeholder="e.g. Batman" required>
+    </label>
+
+    <label>
+      <span>Front Page (cover)</span>
+      <input type="file" name="front_page" enctype="multipart/form-data" required>
+    </label>
+
+    <label>
+      <span>Category</span>
+      <select name="category">
+        <option value="">-- Select --</option>
+        <option value="1">Action</option>
+        <option value="2">Comedy</option>
+        <option value="3">Drama</option>
+        <option value="4">Horror</option>
+      </select>
+    </label>
+
+    <label>
+      <span>Publisher</span>
+      <select name="publisher">
+        <option value="">-- Select --</option>
+        <option value="1">DC Comics</option>
+        <option value="2">Marvel Comics</option>
+        <option value="3">Other</option>
+      </select>
+    </label>
+
+    <label>
+      <span>Still running</span>
+      <input type="checkbox" name="is_active" checked>
+    </label>
+
+    <button type="submit">Save Series</button>
+  </form>
+{% endblock %}

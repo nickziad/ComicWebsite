@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/add_issue.css')}}">
+{% endblock %}
+
+{% block content %}
+<h1>Add Issue</h1>
+
+<form class="card form" method="POST" enctype="multipart/form-data">
+
+  <label>
+    <span>Series</span>
+    <select name="series_id" required>
+      {% for s in series %}
+        <option value="{{ s.id }}">{{ s.title }}</option>
+      {% endfor %}
+    </select>
+  </label>
+
+  <label>
+    <span>File</span>
+    <input type="file" name="issue" accept=".cbz" enctype="multipart/form-data" required>
+  </label>
+
+  <button type="submit">Save Issue</button>
+</form>
+
+{% endblock %}

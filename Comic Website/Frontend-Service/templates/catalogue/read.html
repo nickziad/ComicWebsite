@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/read.css') }}">
+{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+{% block content %}
+<button id="button-zoom"> ▣ </button>
+<div class="reader-container">
+    <div class="controls-top">
+        
+        <a href="{{ url_for('read', series_id=series_id, issue_number=issue_number, page=page-1) }}">
+            Previous
+        </a>
+       
+        
+        <span class="page-indicator">
+            Page {{ page }}
+        </span>
+
+        
+        <a href="{{ url_for('read', series_id=series_id, issue_number=issue_number, page=page+1) }}">
+            Next 
+        </a>
+    </div>
+    <div class="issue-img">
+        <img id="issue-page" src="{{ url_for('send_file', path=img_path) }}" alt="Issue {{ issue_number }}">
+    </div>
+        <div class="controls-bottom">
+        <a href="{{ url_for('read', series_id=series_id, issue_number=issue_number, page=page-1) }}">
+            Previous
+        </a>
+
+        <span class="page-indicator">
+            Page {{ page }}
+        </span>
+        
+        <a href="{{ url_for('read', series_id=series_id, issue_number=issue_number, page=page+1) }}">
+            Next 
+        </a>
+
+    </div>
+    
+</div>
+<script>
+    function init(){
+        const img = document.getElementById('issue-page');
+        const button = document.getElementById('button-zoom');
+
+        zoomOut = true;
+
+        button.onclick = function(){
+            if (zoomOut){
+                img.style.width = "50%";
+                zoomOut = !zoomOut;
+            }else{
+                img.style.width = "100%";
+                zoomOut = true;
+            }
+        }
+    }
+    window.onload = init;
+</script>
+{% endblock %}

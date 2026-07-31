@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css')}}">
+    {% block styles %}
+    {% endblock %}
+</head>
+<body>
+      {% if g.user %}
+        <nav>
+            <div class="nav-container">
+                <div class="nav-bar">
+                    <ul>
+                    <li><a href="{{ url_for('home')}}">ComicsMe</a></li>
+                    </ul>
+                    <ul>
+                        {% block nav %} {% endblock %}
+                        <li><a href="{{ url_for('profile', id=session.get('user_id')) }}">Profile</a></li>
+                        <li><a href="{{ url_for('comics') }}">Comics</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    {% else %}
+    <nav>
+            <div class="nav-container">
+                <div class="nav-bar">
+                    <ul>
+                    <li><a href="{{ url_for('index')}}">ComicsMe</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="{{ url_for('login') }}">Login</a></li>
+                        <li><a href="{{ url_for('register') }}">Sign Up</a></li>
+                        <li><a href="{{ url_for('comics') }}">Comics</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    {% endif %}
+
+    <main>
+        {% block content %} {% endblock %}
+    </main>
+</body>
+</html>

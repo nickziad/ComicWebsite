@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/comic.css') }}">
+{% endblock %}
+
+{%block nav %}
+{% endblock %}
+
+{% block content %}
+    {% if comic %}
+        <div class="comic-container">
+            <div class="comic-card">
+                <img src="{{ url_for('send_file', path=comic['front_page']) }}" alt = "{{ comic['title']}}">
+                <div class="comic-info-container">
+                    <h1> {{comic['title']}}</h1>
+                    <h3> Published by: <span>{{ comic['publisher_name'] }}</span></h3>
+                </div>
+            </div>
+        </div>
+        <div class="issues-container">
+            <div class="issues-content">
+                <h1>Issues</h1>
+                <div class="issues">
+                    {% for i in range(1, comic.issues_count + 1) %}
+                    <a href=" {{ url_for('read', series_id=comic['id'], issue_number = i, page=1) }}">Issue {{ i }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <h3>No comics yet!</h3>
+    {% endif %}
+{% endblock %}

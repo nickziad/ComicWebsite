@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+{% endblock %}
+
+{%block nav %}
+{% endblock %}
+
+{% block content %}
+<div class="profile-info">
+    <h1>{{ username }}</h1>
+</div>
+
+<div class="profile-buttons">
+<ul>
+    <li><a href="{{ url_for('logout')}}"> logout</a></li>
+    <li><a href= "{{ url_for('add_series') }}"> Add Series</a></li>
+    <li><a href= "{{ url_for('add_issue') }}"> Add Issue</a></li> 
+</ul>
+</div>
+
+<div class="added-comics-container">
+    <h2>Added comics</h2>
+    {% if comics %}
+        <div class="comic-container">
+            {% for comic in comics %}
+            <div class="comic-card">
+                <a href="{{ url_for('comic', id=comic['id'])}}">
+                <img src="{{ url_for('send_file', path=comic['front_page']) }}" alt="{{ comic['title']}}">
+                </a>
+                <h1>{{comic['title']}}</h1>   
+            </div>
+            {% endfor %} 
+        </div>
+    {% else %}
+        <h3>No comics added</h3>
+    {% endif %}
+</div>
+{% endblock %}
