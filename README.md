@@ -19,5 +19,5 @@ Running it should be as easy as writing:
 
 Uploading is available after you signup/login. You find it in your profile page. The website accepts .cbz files only when uploading an issue
 
-
+Provided is a comic to test the website out.
 
