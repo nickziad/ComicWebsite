@@ -17,7 +17,7 @@ Running it should be as easy as writing:
 * users
 * database
 
-
+Uploading is available after you signup/login. You find it in your profile page. The website accepts .cbz files only when uploading an issue
 
 
 
